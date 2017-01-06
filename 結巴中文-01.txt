@@ -1,0 +1,43 @@
+'''
+結巴中文: github.com/fxsjy/jieba
+'''
+
+import jieba
+
+text = open('speech.txt', 'r', encoding='utf8').read()
+
+
+#進行分詞
+words = jieba.cut(text, cut_all=False)
+
+
+#將分詞詞頻加入hash中
+hash = {}
+for word in words: 
+    try:
+        print(word)
+    except:
+        print()
+	
+    if word in hash:
+        hash[word] += 1
+    else:		
+        hash[word] = 1
+
+		
+#以詞頻由高至低排序
+items=[(v, k) for k, v in hash.items()]
+items.sort()
+items.reverse()
+items=[(k, v) for v, k in items]
+
+
+#將分詞及詞頻寫入檔案中		
+fd = open('count.csv', 'w')
+fd.write('word,count\n')
+
+for (wrd, cnt) in items:	
+    try:
+        fd.write('%s,%d\n' % (wrd, cnt))
+    except:
+        print()

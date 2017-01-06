@@ -1,0 +1,20 @@
+'''
+結巴中文: github.com/fxsjy/jieba
+'''
+
+import jieba
+import jieba.posseg as pseg
+
+import json
+
+text = open('speech.txt', 'r', encoding='utf-8-sig').read()
+
+
+#進行分詞
+print(text)
+words = pseg.cut(text)
+
+
+#
+for word, flag in words:
+	print(word, flag)

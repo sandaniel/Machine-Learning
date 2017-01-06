@@ -1,0 +1,45 @@
+'''
+結巴中文: github.com/fxsjy/jieba
+'''
+
+import jieba
+
+
+#讀入待分詞的文檔
+originText = open('speech.txt', 'r', encoding='utf8').read()
+
+
+'''
+jieba.cut參數參考:
+
+cut_all=True, 全模式
+我来到北京清华大学 ==> 我/ 来到/ 北京/ 清华/ 清华大学/ 华大/ 大学
+
+cut_all=False, 精確模式
+我来到北京清华大学 ==> 我/ 来到/ 北京/ 清华大学
+'''
+
+#刪除標點符號
+filteredText = "".join(c for c in originText if c not in ('，','。','！','：','「','」','…','、','？','【','】','.',':','?',';','!','~','`','+','-','<','>','/','[',']','{','}',"'",'"', '\n'))
+
+
+#設定停用詞
+stopwords = {}.fromkeys([ line.rstrip() for line in open('stopwords.txt', encoding='utf8') ])
+#stopwords = {}.fromkeys(['的', '是'])
+
+
+#以精確模式分詞
+words = jieba.cut(filteredText, cut_all=False) 
+
+
+#去除停用詞後, 以' '分隔各詞
+final = ''
+for seg in words:
+    if seg not in stopwords:
+        seg+=' '
+        final += seg
+			
+print(final)
+
+
+

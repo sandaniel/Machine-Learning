@@ -1,0 +1,14 @@
+'''
+結巴中文: github.com/fxsjy/jieba
+'''
+
+import jieba
+import jieba.posseg as pseg
+
+
+#進行分詞
+words = pseg.cut("本書循序漸進、淺顯易懂地說明，步驟式實戰操作，輕鬆控管Windows Server 2016的網路環境")
+
+#
+for word, flag in words:
+	print(word, flag)
