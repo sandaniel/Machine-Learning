@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 讀入資料
-#依序為花萼長度, 花萼長度, 花瓣寬度, 花瓣長度, 品種
+#依序為花萼長度(sepal_length), 花萼寬度(sepal_width), 花瓣長度(petal_length), 花瓣寬度(petal_width), 品種(species)
 data=np.genfromtxt('iris.csv',  dtype=None, delimiter=',')
 
 # 整理資料
