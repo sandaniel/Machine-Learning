@@ -3,6 +3,10 @@ from array import array as pyarray
 from numpy import append, array, int8, uint8, zeros
 import numpy as np
 
+from pylab import *
+from numpy import *
+
+
 #=============================
 # 載入 mnist提供的手寫字圖形
 #=============================
@@ -37,9 +41,12 @@ def load_mnist(dataset='training', digits=np.arange(10), path='handwritten/'):
 
     return images, labels
 	
-from pylab import *
-from numpy import *
-images, labels = load_mnist('training', digits=[5])
 
+#=============================
+# 載入手寫字 0及1
+#=============================
+images, labels = load_mnist('training', digits=[0,1])
+
+print(labels)
 imshow(images.mean(axis=0), cmap=cm.gray)
 show()	
