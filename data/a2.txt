@@ -29,7 +29,7 @@ class Activity{
 //----------------------------
 class SignUp{
     private String tel;      //電話
-	private String name;     //報名姓名
+    private String name;     //報名姓名
 	
     //建構元(1)
     //建構元(2)
