@@ -1,0 +1,99 @@
+
+
+//------------------------------------------------------------------------------------------
+import java.util.*;
+
+
+//-----------------------------------------------
+// 一般咨詢24小時內回覆; 特別咨詢2小時內回覆.
+//-----------------------------------------------
+class Service{
+    public static int perDiagnosis = 100;         //一般咨詢每次費用
+    public static int perSpecialDiagnosis = 250;  //特別咨詢每次費用
+    public static double memberDiscount = 0.2;    //會員折扣
+}
+
+
+
+//-----------------------------------------------
+// 可列印介面(已完成)
+//-----------------------------------------------
+interface Printable{
+    public void printBill();
+}
+
+
+//-----------------------------------------------
+// 咨詢類別
+//-----------------------------------------------
+class Appointment implements Printable{
+    private String name;                   //客戶姓名
+    private int numberOfDiagnosis;         //咨詢次數
+    private boolean isSpecialAppointment;  //是否特別咨詢
+	private boolean isMember;              //是否會員
+	
+    //建構元(1)
+    //建構元(2)    
+	
+    //setter    
+    //getter
+    
+    //印出帳單
+    @Override    
+    public void printBill(){}    
+}
+
+
+//-----------------------------------------------
+// 測試類別(已完成)
+//-----------------------------------------------
+class Main {
+    public static void main(String[] args) {    
+        //建立一個可存放多個物件的串列清單
+        ArrayList <Printable>arrayList = new ArrayList();
+        
+        //將多個「咨詢」物件加入串列清單中
+        arrayList.add(new Appointment("李小璇", 1, false, true));
+        arrayList.add(new Appointment("湯小婷", 2, true, false));
+        arrayList.add(new Appointment("李小和", 3, false, false));
+        arrayList.add(new Appointment("黃小瑄", 4, true, true));     
+		
+        //列印帳單	
+        for(int i=0; i<arrayList.size(); i++){            	
+            Printable t = (Printable)arrayList.get(i);             	
+            t.printBill();
+        } 		        
+    }
+}
+//------------------------------------------------------------------------------------------
+
+
+
+列印帳單範例如下:
+
+=========================
+帳單
+-------------------------
+姓名: 李小璇
+咨詢次數: 1
+是否特別咨詢: 否
+是否會員: 是
+-------------------------
+咨詢費用: 80
+=========================
+p.s. 
+咨詢費用 = 100*1*(1-0.2) = 80
+
+
+=========================
+帳單
+-------------------------
+姓名: 湯小婷
+咨詢次數: 2
+是否特別咨詢: 是
+是否會員: 否
+-------------------------
+咨詢費用: 500
+=========================
+p.s. 
+咨詢費用 = 250*2*(1-0) = 500
