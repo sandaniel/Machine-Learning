@@ -30,7 +30,7 @@ class Appointment implements Printable{
     private String name;                   //客戶姓名
     private int numberOfDiagnosis;         //咨詢次數
     private boolean isSpecialAppointment;  //是否特別咨詢
-	private boolean isMember;              //是否會員
+    private boolean isMember;              //是否會員
 	
     //建構元(1)
     //建構元(2)    
