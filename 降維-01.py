@@ -3,6 +3,8 @@ from sklearn import manifold
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
+#----------------------------------------------------
 # 讀入資料, pandas.DataFrame
 df=pd.read_csv('iris.csv', 
 	sep=',', 
@@ -11,12 +13,13 @@ df=pd.read_csv('iris.csv',
 df_feature=df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']]
 df_label=df[['speices']]
 
-mds=manifold.MDS(n_components=2)
 
+#----------------------------------------------------
+mds=manifold.MDS(n_components=2)
 Xtrans=mds.fit_transform(df_feature, df_label)
 
-#------------------------------------------
 
+#----------------------------------------------------
 # 設定字型及大小
 plt.rcParams['font.sans-serif']=['SimHei']
 plt.rcParams['font.size'] = 14
