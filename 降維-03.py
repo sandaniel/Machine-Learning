@@ -14,17 +14,13 @@ df_feature=df[['sepal_length', 'sepal_width', 'petal_length', 'petal_width']]
 df_label=df[['speices']]
 
 #----------------------------------------------------
-
-#mds=manifold.MDS(n_components=2)
-#Xtrans=mds.fit_transform(df_feature, df_label)
-
 pca=decomposition.PCA(n_components=2)
 Xtrans=pca.fit_transform(df_feature, df_label)
 print(Xtrans)
 print(pca.explained_variance_ratio_)
 
-#----------------------------------------------------
 
+#----------------------------------------------------
 # 設定字型及大小
 plt.rcParams['font.sans-serif']=['SimHei']
 plt.rcParams['font.size'] = 14
