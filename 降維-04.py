@@ -39,7 +39,7 @@ plt.ylabel('X2')
 plt.grid(True)
 
 # 設定x軸及y軸的尺規範圍
-plt.axis([-5, 15, -5, 5])
+plt.axis([-15, 15, -5, 5])
 
 # 繪製資料
 
